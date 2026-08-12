@@ -1,76 +1,91 @@
 "use client";
-import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
 export default function Preloader() {
   const [progress, setProgress] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    let currentProgress = 0;
-    
-    // Simulate non-linear loading
     const interval = setInterval(() => {
-      const remaining = 100 - currentProgress;
-      // Add a random amount between 1% and 15% of the remaining progress
-      const increment = Math.max(1, Math.floor(Math.random() * (remaining * 0.15)));
-      currentProgress += increment;
-      
-      if (currentProgress >= 100) {
-        currentProgress = 100;
-        clearInterval(interval);
-        setTimeout(() => {
-          setIsLoading(false);
-        }, 500); // Hold at 100% for a moment
-      }
-      setProgress(currentProgress);
-    }, 150); // Update every 150ms
+      setProgress((prev) => {
+        if (prev >= 100) {
+          clearInterval(interval);
+          return 100;
+        }
+        // Non-linear increments feel more "alive" than a flat ramp
+        const next = prev + (100 - prev) * 0.12 + 1.5;
+        return next >= 100 ? 100 : Math.floor(next);
+      });
+    }, 60);
 
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    if (progress === 100) {
+      const timeout = setTimeout(() => setIsLoading(false), 400);
+      return () => clearTimeout(timeout);
+    }
+  }, [progress]);
+
   return (
-    <AnimatePresence>
+    <AnimatePresence mode="wait">
       {isLoading && (
         <motion.div
+          key="preloader"
           initial={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.8, ease: "easeInOut" }}
-          className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-navy"
+          exit={{
+            opacity: 0,
+            transition: { duration: 0.6, ease: "easeInOut" },
+          }}
+          className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-navy"
         >
-          <div className="flex flex-col items-center gap-8 w-full max-w-xs px-6">
-            {/* Logo or text animation */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="text-3xl md:text-4xl font-display font-bold text-white tracking-widest flex items-center gap-1"
+          {/* Ambient glow */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0.4 }}
+            transition={{ duration: 1.2 }}
+            className="absolute w-[500px] h-[500px] bg-cyan/20 rounded-full blur-[120px]"
+          />
+
+          {/* Logo mark */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20, transition: { duration: 0.4 } }}
+            transition={{ duration: 0.6 }}
+            className="relative z-10 flex items-center gap-1 text-4xl md:text-5xl font-display font-bold text-white tracking-wider"
+          >
+            <span className="text-cyan">&lt;</span>
+            <motion.span
+              initial={{ letterSpacing: "0.4em", opacity: 0 }}
+              animate={{ letterSpacing: "0.05em", opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" }}
             >
-              <span className="text-cyan">&lt;</span>
               Akhilesh
-              <span className="text-cyan">/&gt;</span>
-            </motion.div>
+            </motion.span>
+            <span className="text-cyan">/&gt;</span>
+          </motion.div>
 
-            {/* Progress bar container */}
-            <div className="w-full h-1 bg-white/10 rounded-full overflow-hidden relative">
-              <motion.div
-                className="absolute top-0 left-0 h-full bg-cyan"
-                initial={{ width: 0 }}
-                animate={{ width: `${progress}%` }}
-                transition={{ ease: "linear", duration: 0.15 }}
-              />
-            </div>
-
-            {/* Percentage text */}
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.2 }}
-              className="text-cyan font-mono text-sm tracking-widest"
-            >
-              {progress}%
-            </motion.div>
+          {/* Progress bar */}
+          <div className="relative z-10 mt-10 w-56 md:w-72 h-[3px] bg-white/10 rounded-full overflow-hidden">
+            <motion.div
+              className="h-full bg-gradient-to-r from-cyan to-blue-500 rounded-full shadow-[0_0_10px_rgba(0,212,255,0.8)]"
+              animate={{ width: `${progress}%` }}
+              transition={{ duration: 0.15, ease: "easeOut" }}
+            />
           </div>
+
+          {/* Progress percentage */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
+            className="relative z-10 mt-4 text-xs font-mono text-slate-400 tracking-[0.3em]"
+          >
+            {String(progress).padStart(3, "0")}%
+          </motion.p>
         </motion.div>
       )}
     </AnimatePresence>

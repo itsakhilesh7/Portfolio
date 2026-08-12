@@ -13,16 +13,22 @@ export default function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Build mailto link
-    const subject = encodeURIComponent(`New Message from ${formData.name}`);
-    const body = encodeURIComponent(`${formData.message}\n\nFrom: ${formData.email}`);
-    window.location.href = `mailto:${PERSONAL_INFO.email}?subject=${subject}&body=${body}`;
-    
-    setIsSubmitting(false);
-    setIsSuccess(true);
-    setFormData({ name: "", email: "", message: "" });
-    setTimeout(() => setIsSuccess(false), 3000);
+
+    const subject = encodeURIComponent(`Portfolio Contact from ${formData.name}`);
+    const body = encodeURIComponent(
+      `${formData.message}\n\n— ${formData.name} (${formData.email})`
+    );
+    const mailtoLink = `mailto:${PERSONAL_INFO.email}?subject=${subject}&body=${body}`;
+
+    // Opens the visitor's default mail client with the message prefilled
+    window.location.href = mailtoLink;
+
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setIsSuccess(true);
+      setFormData({ name: "", email: "", message: "" });
+      setTimeout(() => setIsSuccess(false), 3000);
+    }, 800);
   };
 
   return (
