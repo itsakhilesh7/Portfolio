@@ -13,13 +13,16 @@ export default function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSuccess(true);
-      setFormData({ name: "", email: "", message: "" });
-      setTimeout(() => setIsSuccess(false), 3000);
-    }, 1500);
+    
+    // Build mailto link
+    const subject = encodeURIComponent(`New Message from ${formData.name}`);
+    const body = encodeURIComponent(`${formData.message}\n\nFrom: ${formData.email}`);
+    window.location.href = `mailto:${PERSONAL_INFO.email}?subject=${subject}&body=${body}`;
+    
+    setIsSubmitting(false);
+    setIsSuccess(true);
+    setFormData({ name: "", email: "", message: "" });
+    setTimeout(() => setIsSuccess(false), 3000);
   };
 
   return (
