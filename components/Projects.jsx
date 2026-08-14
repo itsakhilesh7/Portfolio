@@ -66,12 +66,16 @@ export default function Projects() {
                     </svg>
                   </div>
                   <div className="flex gap-4">
-                    <a href={project.github} target="_blank" rel="noreferrer" className="text-slate-400 hover:text-cyan transition-colors">
-                      <FaGithub size={20} />
-                    </a>
-                    <a href={project.link} target="_blank" rel="noreferrer" className="text-slate-400 hover:text-cyan transition-colors">
-                      <ExternalLink size={20} />
-                    </a>
+                    {project.github && project.github !== "#" && (
+                      <a href={project.github} target="_blank" rel="noreferrer" className="text-slate-400 hover:text-cyan transition-colors">
+                        <FaGithub size={20} />
+                      </a>
+                    )}
+                    {project.link && project.link !== "#" && (
+                      <a href={project.link} target="_blank" rel="noreferrer" className="text-slate-400 hover:text-cyan transition-colors">
+                        <ExternalLink size={20} />
+                      </a>
+                    )}
                   </div>
                 </div>
 
