@@ -66,7 +66,7 @@ export const PROJECTS = [
     title: "Cab Service App",
     description: "Pincode-to-pincode cab booking with secure auth and real-time fare calculation.",
     tech: ["Next.js", "Supabase", "Tailwind CSS"],
-    link: "#", // Add real link if available
+    link: "#",
     github: "#"
   },
   {
