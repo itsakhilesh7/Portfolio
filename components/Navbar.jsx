@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
@@ -17,14 +17,37 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const { scrollY } = useScroll();
+  const mobileNavRef = useRef(null);
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     if (latest > 50) setIsScrolled(true);
     else setIsScrolled(false);
   });
 
+  // Close mobile menu on outside click
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handleClickOutside = (e) => {
+      if (mobileNavRef.current && !mobileNavRef.current.contains(e.target)) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [isOpen]);
+
+  // Close mobile menu when the URL hash changes (i.e. navigating to a section)
+  useEffect(() => {
+    const handleHashChange = () => setIsOpen(false);
+    window.addEventListener("hashchange", handleHashChange);
+    return () => window.removeEventListener("hashchange", handleHashChange);
+  }, []);
+
   return (
     <motion.header
+      ref={mobileNavRef}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
@@ -62,6 +85,9 @@ export default function Navbar() {
         <button
           className="md:hidden text-slate-300 hover:text-white"
           onClick={() => setIsOpen(!isOpen)}
+          aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-expanded={isOpen}
+          aria-controls="mobile-nav-menu"
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -70,6 +96,7 @@ export default function Navbar() {
       {/* Mobile Nav */}
       {isOpen && (
         <motion.div
+          id="mobile-nav-menu"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           className="md:hidden absolute top-full left-0 right-0 glass border-t-0 p-6 flex flex-col gap-4"
