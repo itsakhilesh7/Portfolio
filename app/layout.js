@@ -13,8 +13,28 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"),
   title: "Vobilisetti Akhilesh | Full Stack Developer",
   description: "Portfolio of Vobilisetti Akhilesh, a passionate Full Stack Developer specializing in Next.js.",
+  openGraph: {
+    title: "Vobilisetti Akhilesh | Full Stack Developer",
+    description: "Portfolio of Vobilisetti Akhilesh, a passionate Full Stack Developer specializing in Next.js.",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Vobilisetti Akhilesh Portfolio Preview",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Vobilisetti Akhilesh | Full Stack Developer",
+    description: "Portfolio of Vobilisetti Akhilesh, a passionate Full Stack Developer specializing in Next.js.",
+    images: ["/og-image.jpg"],
+  },
 };
 
 export default function RootLayout({ children }) {
