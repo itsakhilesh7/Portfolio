@@ -1,5 +1,6 @@
 import { Inter, Space_Grotesk } from "next/font/google";
 import Preloader from "../components/Preloader";
+import ScrollToTop from "../components/ScrollToTop";
 import "./globals.css";
 
 const inter = Inter({
@@ -45,6 +46,7 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         <Preloader />
+        <ScrollToTop />
         {/* Global animated background glow */}
         <div className="fixed inset-0 z-[-1] min-h-screen bg-navy bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(0,212,255,0.15),rgba(10,15,30,1))]"></div>
         {children}
