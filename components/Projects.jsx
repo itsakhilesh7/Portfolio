@@ -2,30 +2,17 @@
 import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
+import { fadeUpVariant, staggerContainer, itemFadeUp } from "../utils/motion";
 import { PROJECTS } from "../constants/data";
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.15 }
-  }
-};
 
-const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
-};
 
 export default function Projects() {
   return (
     <section id="projects" className="py-24 bg-[#0d1326] relative">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
+          {...fadeUpVariant}
           className="mb-16 text-center"
         >
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
@@ -35,7 +22,7 @@ export default function Projects() {
         </motion.div>
 
         <motion.div
-          variants={containerVariants}
+          variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
@@ -44,7 +31,7 @@ export default function Projects() {
           {PROJECTS.map((project, idx) => (
             <motion.div
               key={idx}
-              variants={itemVariants}
+              variants={itemFadeUp}
               whileHover={{ y: -10 }}
               className="glass rounded-2xl overflow-hidden group border border-white/5 hover:border-cyan/30 hover:shadow-[0_10px_30px_rgba(0,212,255,0.15)] transition-all duration-300 flex flex-col h-full"
             >

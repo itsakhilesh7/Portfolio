@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import { fadeUpVariant, slideInLeftVariant, slideInRightVariant } from "../utils/motion";
 import { PERSONAL_INFO } from "../constants/data";
 
 export default function About() {
@@ -7,10 +8,7 @@ export default function About() {
     <section id="about" className="py-24 relative">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
+          {...fadeUpVariant}
           className="mb-12"
         >
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
@@ -20,12 +18,7 @@ export default function About() {
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
+          <motion.div {...slideInLeftVariant}>
             <p className="text-lg text-slate-300 leading-relaxed mb-6">
               Hi! I&apos;m {PERSONAL_INFO.name.split(" ")[0]}, a self-driven{" "}
               <span className="text-white font-medium">B.Tech Computer Science</span>{" "}
@@ -40,10 +33,7 @@ export default function About() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            {...slideInRightVariant}
             className="grid grid-cols-1 sm:grid-cols-3 gap-6"
           >
             {PERSONAL_INFO.stats.map((stat, i) => (
