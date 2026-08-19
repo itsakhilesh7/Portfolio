@@ -17,7 +17,7 @@ export const PERSONAL_INFO = {
   ],
   heroTyping: [
     "Full Stack Developer",
-    "Next.js Developer",
+    "Creative Problem Solver",
     "IoT Enthusiast",
     "CS Undergrad"
   ]
