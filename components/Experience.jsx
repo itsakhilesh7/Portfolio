@@ -21,7 +21,7 @@ export default function Experience() {
 
         <div className="relative">
           {/* Vertical line connecting timeline nodes */}
-          <div className="absolute left-[39px] md:left-1/2 top-0 bottom-0 w-0.5 bg-cyan/20 transform md:-translate-x-1/2"></div>
+          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-cyan/20 transform -translate-x-1/2"></div>
 
           {EXPERIENCE.map((exp, index) => {
             const isEven = index % 2 === 0;
@@ -31,7 +31,7 @@ export default function Experience() {
                 className={`relative flex flex-col md:flex-row items-start md:items-center justify-between w-full mb-12 last:mb-0 ${isEven ? 'md:flex-row-reverse' : ''}`}
               >
                 {/* Timeline Dot */}
-                <div className="absolute left-[39px] md:left-1/2 w-4 h-4 bg-navy border-2 border-cyan rounded-full transform -translate-x-[7px] md:-translate-x-1/2 mt-6 md:mt-0 z-10 shadow-[0_0_10px_rgba(0,212,255,0.6)]"></div>
+                <div className="absolute left-4 md:left-1/2 w-4 h-4 bg-navy border-2 border-cyan rounded-full transform -translate-x-1/2 mt-6 md:mt-0 z-10 shadow-[0_0_10px_rgba(0,212,255,0.6)]"></div>
 
                 {/* Content */}
                 <motion.div
@@ -40,7 +40,7 @@ export default function Experience() {
                   viewport={{ once: true, margin: "-100px" }}
                   transition={{ duration: 0.6, delay: 0.1 }}
                   whileHover={{ scale: 1.02, y: -5 }}
-                  className={`pl-20 md:pl-0 md:w-5/12 w-full pt-0`}
+                  className={`pl-12 md:pl-0 md:w-5/12 w-full pt-0`}
                 >
                   <div className="glass p-6 md:p-8 rounded-2xl glass-hover relative border border-white/5">
                     <span className="inline-block px-3 py-1 bg-cyan/10 text-cyan text-sm font-semibold rounded-full mb-4">
