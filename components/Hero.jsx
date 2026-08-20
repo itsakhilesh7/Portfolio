@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Download, Mail } from "lucide-react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 import Link from "next/link";
 import { PERSONAL_INFO } from "../constants/data";
 
@@ -89,14 +90,35 @@ export default function Hero() {
             <Mail className="group-hover:text-cyan transition-colors" size={20} />
             Contact Me
           </Link>
-          <a
-            href="/resume.pdf"
-            target="_blank"
-            className="group px-8 py-3 glass glass-hover text-white rounded-lg flex items-center gap-2 w-full sm:w-auto justify-center"
-          >
-            <Download className="group-hover:text-cyan transition-colors" size={20} />
-            Resume
-          </a>
+          <div className="flex items-center justify-center gap-4 mt-4 sm:mt-0 sm:ml-2">
+            <a
+              href={PERSONAL_INFO.github}
+              target="_blank"
+              rel="noreferrer"
+              title="GitHub"
+              className="p-3 glass glass-hover text-slate-300 hover:text-cyan rounded-full transition-all"
+            >
+              <FaGithub size={20} />
+            </a>
+            <a
+              href={PERSONAL_INFO.linkedin}
+              target="_blank"
+              rel="noreferrer"
+              title="LinkedIn"
+              className="p-3 glass glass-hover text-slate-300 hover:text-cyan rounded-full transition-all"
+            >
+              <FaLinkedin size={20} />
+            </a>
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noreferrer"
+              title="Download Resume"
+              className="p-3 glass glass-hover text-slate-300 hover:text-cyan rounded-full transition-all"
+            >
+              <Download size={20} />
+            </a>
+          </div>
         </motion.div>
       </div>
     </section>
