@@ -6,7 +6,7 @@ import { GraduationCap } from "lucide-react";
 
 export default function Education() {
   return (
-    <section id="education" className="py-24 relative overflow-hidden bg-[#0d1326]">
+    <section id="education" className="py-24 relative overflow-hidden bg-gradient-to-b from-[#0a0f1e] via-[#0d1326] to-[#0a0f1e]">
       <div className="max-w-5xl mx-auto px-6 lg:px-12 relative z-10">
         <motion.div
           {...fadeUpVariant}

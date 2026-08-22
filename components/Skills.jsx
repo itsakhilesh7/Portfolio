@@ -5,7 +5,7 @@ import { SKILLS } from "../constants/data";
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-24 bg-[#0d1326] relative">
+    <section id="skills" className="py-24 bg-gradient-to-b from-[#0a0f1e] via-[#0d1326] to-[#0a0f1e] relative">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <motion.div
           {...fadeUpVariant}

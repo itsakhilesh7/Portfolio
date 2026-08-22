@@ -4,7 +4,7 @@ import { AWARDS } from "../constants/data";
 
 export default function Awards() {
   return (
-    <section id="awards" className="py-24 bg-[#0d1326] relative overflow-hidden">
+    <section id="awards" className="py-24 bg-gradient-to-b from-[#0a0f1e] via-[#0d1326] to-[#0a0f1e] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
