@@ -13,12 +13,12 @@ export default function Projects() {
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <motion.div
           {...fadeUpVariant}
-          className="mb-16 text-center"
+          className="mb-16"
         >
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
             Featured <span className="text-cyan">Projects</span>
           </h2>
-          <div className="w-20 h-1 bg-cyan rounded-full mx-auto"></div>
+          <div className="w-20 h-1 bg-cyan rounded-full"></div>
         </motion.div>
 
         <motion.div

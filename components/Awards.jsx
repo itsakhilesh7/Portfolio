@@ -11,12 +11,12 @@ export default function Awards() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="mb-16 text-center"
+          className="mb-16"
         >
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
             Honors & <span className="text-cyan">Awards</span>
           </h2>
-          <div className="w-20 h-1 bg-cyan rounded-full mx-auto"></div>
+          <div className="w-20 h-1 bg-cyan rounded-full"></div>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">

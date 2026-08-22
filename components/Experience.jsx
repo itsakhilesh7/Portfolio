@@ -11,12 +11,12 @@ export default function Experience() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="mb-16 text-center"
+          className="mb-16"
         >
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
             Work <span className="text-cyan">Experience</span>
           </h2>
-          <div className="w-20 h-1 bg-cyan rounded-full mx-auto"></div>
+          <div className="w-20 h-1 bg-cyan rounded-full"></div>
         </motion.div>
 
         <div className="relative">
