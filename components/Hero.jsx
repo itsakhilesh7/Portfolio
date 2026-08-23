@@ -76,21 +76,25 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
-          <Link
-            href="#projects"
-            className="group px-8 py-3 bg-cyan text-navy font-bold rounded-lg hover:bg-cyan/90 transition-all flex items-center gap-2 w-full sm:w-auto justify-center shadow-[0_0_20px_rgba(0,212,255,0.4)]"
-          >
-            View Projects
-            <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
-          </Link>
-          <Link
-            href="#contact"
-            className="group px-8 py-3 glass glass-hover text-white rounded-lg flex items-center gap-2 w-full sm:w-auto justify-center"
-          >
-            <Mail className="group-hover:text-cyan transition-colors" size={20} />
-            Contact Me
-          </Link>
-          <div className="flex items-center justify-center gap-4 mt-4 sm:mt-0 sm:ml-2">
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <Link
+              href="#projects"
+              className="group px-8 py-3 bg-cyan text-navy font-bold rounded-lg hover:bg-cyan/90 transition-all flex items-center gap-2 w-full sm:w-auto justify-center shadow-[0_0_20px_rgba(0,212,255,0.4)]"
+            >
+              View Projects
+              <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
+            </Link>
+          </motion.div>
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <Link
+              href="#contact"
+              className="group px-8 py-3 glass glass-hover text-white rounded-lg flex items-center gap-2 w-full sm:w-auto justify-center"
+            >
+              <Mail className="group-hover:text-cyan transition-colors" size={20} />
+              Contact Me
+            </Link>
+          </motion.div>
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="flex items-center justify-center gap-4 mt-4 sm:mt-0 sm:ml-2">
             <a
               href={PERSONAL_INFO.github}
               target="_blank"
@@ -118,7 +122,7 @@ export default function Hero() {
             >
               <Download size={20} />
             </a>
-          </div>
+          </motion.div>
         </motion.div>
       </div>
     </section>

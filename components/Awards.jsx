@@ -19,7 +19,7 @@ export default function Awards() {
           <div className="w-20 h-1 bg-cyan rounded-full"></div>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div className="flex flex-col gap-6 max-w-4xl mx-auto">
           {AWARDS.map((award, index) => {
             const Icon = award.icon;
             return (
