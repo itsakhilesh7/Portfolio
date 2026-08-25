@@ -68,9 +68,10 @@ export default function Navbar() {
             <Link
               key={link.name}
               href={link.href}
-              className="text-sm font-medium text-slate-300 hover:text-cyan transition-colors"
+              className="relative text-sm font-medium text-slate-300 hover:text-cyan transition-colors group"
             >
               {link.name}
+              <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-cyan transition-all duration-300 group-hover:w-full"></span>
             </Link>
           ))}
           <Link
