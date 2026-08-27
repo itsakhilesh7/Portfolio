@@ -38,7 +38,7 @@ export default function Skills() {
                       key={index}
                       variants={itemFadeUp}
                       whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.1)" }}
-                      className="flex items-center gap-3 bg-white/5 rounded-lg p-3 transition-colors border border-white/5"
+                      className="flex items-center gap-3 bg-white/5 rounded-lg p-3 transition-all border border-white/5 hover:border-cyan/30 hover:shadow-[0_0_15px_rgba(0,212,255,0.15)]"
                     >
                       <Icon className="text-cyan text-xl" />
                       <span className="text-sm font-medium text-slate-300">

@@ -76,7 +76,7 @@ export default function Projects() {
 
                 <ul className="flex flex-wrap gap-2 mt-auto">
                   {project.tech.map((tech, i) => (
-                    <li key={i} className="text-xs font-mono text-cyan bg-cyan/10 px-3 py-1 rounded-full">
+                    <li key={i} className="text-xs font-mono text-cyan bg-cyan/10 border border-cyan/20 px-3 py-1 rounded-full group-hover:bg-cyan/20 group-hover:border-cyan/40 transition-colors">
                       {tech}
                     </li>
                   ))}
