@@ -1,28 +1,29 @@
-# Vobilisetti Akhilesh - Portfolio
+# Welcome to your Lovable project
 
-Welcome to my personal portfolio! This project showcases my skills, experience, and projects as a Full Stack Developer.
+This project was built with [Lovable](https://lovable.dev).
 
-## Overview
-- **Name:** Vobilisetti Akhilesh
-- **Role:** B.Tech Computer Science Student | Full Stack Developer
-- **Tech Stack:** Next.js, React, Tailwind CSS, Supabase, Node.js, MySQL
+## Build with Lovable
 
-## Features
-- **Modern UI:** Built with Next.js and styled with Tailwind CSS for a sleek, responsive design.
-- **Dynamic Projects:** Showcases featured projects with direct links and tech stacks.
-- **Experience & Education:** Details my academic journey and professional internships.
-- **Animations:** Uses Framer Motion for smooth scroll animations and hover effects.
+Open your project in the [Lovable editor](https://lovable.dev) and keep building.
 
-## Getting Started
+- **Ship faster**: describe what you want to build and Lovable handles the code.
+- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
+- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
 
-First, install dependencies:
-```bash
-npm install
-```
+## Development
 
-Then, run the development server:
-```bash
+Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+
+```sh
+git clone <this-repository-url>
+cd <repository-name>
+npm i
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the portfolio.
+## Built with
+
+- TanStack Start
+- TypeScript
+- React
+- Tailwind CSS
