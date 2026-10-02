@@ -16,7 +16,7 @@ One task at a time; after each task, push one commit to itsakhilesh7/Portfolio b
 
 - [x] Background texture / gradient mesh
 - [x] Hover effects on timeline, skills, awards
-- [ ] Tech-stack marquee
+- [x] Tech-stack marquee
 - [ ] Dark/light mode toggle
 - [ ] Project detail pages
 - [ ] "Now" section
