@@ -8,23 +8,30 @@ export default function Preloader() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    // Skip on repeat visits within the same session
+    if (sessionStorage.getItem("preloader-seen")) {
+      setIsLoading(false);
+      return undefined;
+    }
+    sessionStorage.setItem("preloader-seen", "1");
+
     const interval = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
           clearInterval(interval);
           return 100;
         }
-        const next = prev + (100 - prev) * 0.12 + 1.5;
+        const next = prev + (100 - prev) * 0.25 + 4;
         return next >= 100 ? 100 : Math.floor(next);
       });
-    }, 60);
+    }, 40);
 
     return () => clearInterval(interval);
   }, []);
 
   useEffect(() => {
     if (progress === 100) {
-      const timeout = setTimeout(() => setIsLoading(false), 400);
+      const timeout = setTimeout(() => setIsLoading(false), 150);
       return () => clearTimeout(timeout);
     }
     return undefined;

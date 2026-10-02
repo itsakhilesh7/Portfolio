@@ -14,8 +14,8 @@ One task at a time; after each task, push one commit to itsakhilesh7/Portfolio b
 - [ ] Real project GitHub/live links (needs links from user)
 - [ ] Real resume PDF (needs file from user)
 
-- [ ] Background texture / gradient mesh
-- [ ] Hover effects on timeline, skills, awards
+- [x] Background texture / gradient mesh
+- [x] Hover effects on timeline, skills, awards
 - [ ] Tech-stack marquee
 - [ ] Dark/light mode toggle
 - [ ] Project detail pages

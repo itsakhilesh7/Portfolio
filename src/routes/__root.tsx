@@ -135,7 +135,13 @@ function RootComponent() {
       <Preloader />
       <ScrollToTop />
       {/* Global animated background glow */}
-      <div className="fixed inset-0 -z-10 min-h-screen bg-navy bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(0,212,255,0.15),rgba(10,15,30,1))]"></div>
+      <div aria-hidden className="fixed inset-0 -z-10 min-h-screen overflow-hidden bg-navy">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(0,212,255,0.15),rgba(10,15,30,1))]" />
+        <div className="mesh-blob absolute -left-40 top-1/3 h-[32rem] w-[32rem] rounded-full bg-cyan/10 blur-3xl" />
+        <div className="mesh-blob mesh-blob-delay absolute -right-40 bottom-0 h-[28rem] w-[28rem] rounded-full bg-[rgba(99,102,241,0.10)] blur-3xl" />
+        <div className="bg-grid absolute inset-0" />
+        <div className="bg-noise absolute inset-0" />
+      </div>
       <Outlet />
     </QueryClientProvider>
   );

@@ -32,17 +32,17 @@ export default function Awards() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.2 }}
                 whileHover={{ y: -5, scale: 1.02 }}
-                className="glass rounded-2xl p-8 border border-cyan/20 bg-gradient-to-br from-cyan/5 to-transparent relative group"
+                className="glass rounded-2xl p-8 border border-cyan/20 bg-gradient-to-br from-cyan/5 to-transparent relative group hover:border-cyan/50 hover:shadow-[0_0_30px_rgba(0,212,255,0.2)] transition-all duration-300"
               >
                 {/* Decorative glow behind icon */}
                 <div className="absolute top-8 left-8 w-16 h-16 bg-cyan/20 rounded-full blur-xl group-hover:bg-cyan/40 transition-colors"></div>
 
                 <div className="relative z-10 flex flex-col md:flex-row gap-6 items-start md:items-center text-center md:text-left">
-                  <div className="shrink-0 p-4 bg-navy rounded-full border border-cyan/30 text-cyan mx-auto md:mx-0 shadow-[0_0_15px_rgba(0,212,255,0.3)] group-hover:shadow-[0_0_25px_rgba(0,212,255,0.6)] transition-all">
+                  <div className="shrink-0 p-4 bg-navy rounded-full border border-cyan/30 text-cyan mx-auto md:mx-0 shadow-[0_0_15px_rgba(0,212,255,0.3)] group-hover:shadow-[0_0_25px_rgba(0,212,255,0.6)] group-hover:scale-110 group-hover:-rotate-6 transition-all duration-300">
                     <Icon size={32} />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-white mb-2">{award.title}</h3>
+                    <h3 className="text-xl font-bold text-white mb-2 group-hover:text-cyan transition-colors duration-300">{award.title}</h3>
                     <p className="text-slate-400 text-sm leading-relaxed">
                       {award.description}
                     </p>

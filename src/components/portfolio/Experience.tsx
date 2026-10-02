@@ -29,10 +29,10 @@ export default function Experience() {
             return (
               <div
                 key={index}
-                className={`relative flex flex-col md:flex-row items-start md:items-center justify-between w-full mb-12 last:mb-0 ${isEven ? 'md:flex-row-reverse' : ''}`}
+                className={`group relative flex flex-col md:flex-row items-start md:items-center justify-between w-full mb-12 last:mb-0 ${isEven ? 'md:flex-row-reverse' : ''}`}
               >
                 {/* Timeline Dot */}
-                <div className="absolute left-4 md:left-1/2 w-4 h-4 bg-navy border-2 border-cyan rounded-full transform -translate-x-1/2 mt-6 md:mt-0 z-10 shadow-[0_0_10px_rgba(0,212,255,0.6)]"></div>
+                <div className="absolute left-4 md:left-1/2 w-4 h-4 bg-navy border-2 border-cyan rounded-full transform -translate-x-1/2 mt-6 md:mt-0 z-10 shadow-[0_0_10px_rgba(0,212,255,0.6)] transition-all duration-300 group-hover:bg-cyan group-hover:scale-125 group-hover:shadow-[0_0_20px_rgba(0,212,255,0.9)]"></div>
 
                 {/* Content */}
                 <motion.div
@@ -43,11 +43,11 @@ export default function Experience() {
                   whileHover={{ scale: 1.02, y: -5 }}
                   className="pl-12 md:pl-0 md:w-5/12 w-full pt-0"
                 >
-                  <div className="glass p-6 md:p-8 rounded-2xl glass-hover relative border border-white/5">
+                  <div className="glass p-6 md:p-8 rounded-2xl glass-hover relative border border-white/5 hover:border-cyan/40 hover:shadow-[0_0_30px_rgba(0,212,255,0.15)] transition-all duration-300">
                     <span className="inline-block px-3 py-1 bg-cyan/10 text-cyan text-sm font-semibold rounded-full mb-4">
                       {exp.duration}
                     </span>
-                    <h3 className="text-xl md:text-2xl font-bold text-white mb-1">{exp.role}</h3>
+                    <h3 className="text-xl md:text-2xl font-bold text-white mb-1 group-hover:text-cyan transition-colors duration-300">{exp.role}</h3>
                     <h4 className="text-lg font-medium text-slate-400 mb-4">{exp.company}</h4>
                     <ul className="space-y-3 text-slate-300 text-sm md:text-base">
                       {exp.points.map((point, i) => (
