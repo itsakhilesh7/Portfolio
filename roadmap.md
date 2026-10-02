@@ -1,17 +1,19 @@
 # Portfolio Roadmap
-One task at a time; each finished task syncs to GitHub (requires Git sync connected).
+One task at a time; after each task, push one commit to itsakhilesh7/Portfolio branch `v2`.
 
 ## Done
 - [x] Project mockup images + social preview image
 - [x] Printable /resume page
 - [x] Animated avatar in hero + live GitHub section
 - [x] Reduced-motion support for avatar
+- [x] Pushed new site to Portfolio repo, branch v2
+- [x] Speed up preloader / skip on repeat visits
 
 ## Open
-- [ ] Connect GitHub two-way sync (user: Plus menu > GitHub > Connect project) — blocker for pushing
+- [ ] Delete extra repo portfolio-415fdf91 (user must do it: connection lacks admin rights)
 - [ ] Real project GitHub/live links (needs links from user)
 - [ ] Real resume PDF (needs file from user)
-- [ ] Speed up preloader / skip on repeat visits
+
 - [ ] Background texture / gradient mesh
 - [ ] Hover effects on timeline, skills, awards
 - [ ] Tech-stack marquee
